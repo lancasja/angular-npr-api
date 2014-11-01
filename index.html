@@ -2,6 +2,7 @@
 <html ng-app="myApp">
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<script src="js/main.js"></script>
 
 		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:300'>
@@ -10,8 +11,8 @@
 	<body>
 
 		<div ng-controller="PlayerController">
-			<a ng-click="play()">Play</a>
-			<a ng-click="pause()">Pause</a>
+			<a ng-click="play()"><i class="fa fa-play"></i></a>
+			<a ng-click="pause()"><i class="fa fa-pause"></i></a>
 			<p>Playing: {{ playing }}</p>
 		</div>
 
