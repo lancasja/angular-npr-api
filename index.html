@@ -11,8 +11,8 @@
 	<body>
 
 		<div ng-controller="PlayerController">
-			<a ng-click="play()"><i class="fa fa-play"></i></a>
-			<a ng-click="pause()"><i class="fa fa-pause"></i></a>
+			<a ng-click="play()" ng-show="!playing"><i class="fa fa-play"></i></a>
+			<a ng-click="pause()" ng-show="playing"><i class="fa fa-pause"></i></a>
 			<p>Playing: {{ playing }}</p>
 		</div>
 

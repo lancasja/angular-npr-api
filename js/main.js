@@ -12,28 +12,36 @@ app.controller('PlayerController', ['$scope', function($scope) {
 	
 	$scope.playing = false;
 
+	/* =========================================== */
+	/* will be refactored,
+			bad idea to manipulate DOM in a controller */
+
+
 	// create an audio element
 	$scope.audio = document.createElement('audio');
 	
 	// set the source
-	$scope.audio.src = 'audio/ht-bluesy.mp3';
-
+	$scope.audio.src = '/audio/ht-bluesy.mp3';
+	
+	/* =========================================== */
+	
 	// play audio
 	$scope.play = function() {
 		$scope.audio.play();
-
-		if (!$scope.audio.paused) {
-			$scope.playing = true;
-		}
+		$scope.playing = true;
 	}
 
+	// pause audio
 	$scope.pause = function() {
 		$scope.audio.pause();
-
-		if ($scope.audio.paused) {
-			$scope.playing = false;
-		}
+		$scope.playing = false;
 	}
+
+	$scope.audio.addEventListener('ended', function() {
+		$scope.$apply(function() {
+			$scope.pause();
+		});
+	});
 }]);
 
 // keep track of audio element
