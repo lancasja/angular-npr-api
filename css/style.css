@@ -2,3 +2,22 @@ body {
 	font-family: 'Lato', sans-serif;
 	color: #444;
 }
+
+input {
+	display: block;
+	margin: 20px 0;
+	height: 24px;
+}
+
+a {
+	border: 1px solid rgba(70, 70, 70, 0.8);
+	padding: 4px 8px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+a:hover {
+	color: #489413;
+	border-color: #489413;
+}

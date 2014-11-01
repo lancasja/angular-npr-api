@@ -4,5 +4,20 @@
 
 var app = angular.module('myApp', []);
 
-// $scope connects a DOM element with a controller
-// in a MVC, $scope is the model
+// anything attached to $scope is available to the view
+// anything in app.run() will run before the rest of the app
+
+app.controller('ParentController', function($scope) {
+	$scope.person = { greeted: false };
+});
+
+
+app.controller('ChildController', function($scope) {
+	$scope.sayHello = function() {
+		$scope.person.greeted = true;
+	}
+
+	$scope.reset = function() {
+		$scope.person.greeted = false;
+	}
+});

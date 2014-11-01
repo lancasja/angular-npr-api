@@ -8,9 +8,16 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div>
-			<input type="text" ng-model="name" placeholder="What's your name?">
-			<h1>Hello, {{ name }}!</h1>
+
+		<!-- ng-controller creates a new $scope -->
+		<div ng-controller="ParentController">
+			<div ng-controller="ChildController">
+				<input type="text" ng-model="person.name" placeholder="Name">
+				<a ng-click="sayHello()">Say Hello</a>
+				<a ng-click="reset()">Reset</a>
+			</div>
+			<p>{{ person }}</p>
 		</div>
+
 	</body>
 </html>
