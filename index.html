@@ -9,14 +9,10 @@
 	</head>
 	<body>
 
-		<!-- ng-controller creates a new $scope -->
-		<div ng-controller="ParentController">
-			<div ng-controller="ChildController">
-				<input type="text" ng-model="person.name" placeholder="Name">
-				<a ng-click="sayHello()">Say Hello</a>
-				<a ng-click="reset()">Reset</a>
-			</div>
-			<p>{{ person }}</p>
+		<div ng-controller="PlayerController">
+			<a ng-click="play()">Play</a>
+			<a ng-click="pause()">Pause</a>
+			<p>Playing: {{ playing }}</p>
 		</div>
 
 	</body>

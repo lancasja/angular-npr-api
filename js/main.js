@@ -7,17 +7,37 @@ var app = angular.module('myApp', []);
 // anything attached to $scope is available to the view
 // anything in app.run() will run before the rest of the app
 
-app.controller('ParentController', function($scope) {
-	$scope.person = { greeted: false };
-});
+// root controller
+app.controller('PlayerController', ['$scope', function($scope) {
+	
+	$scope.playing = false;
 
+	// create an audio element
+	$scope.audio = document.createElement('audio');
+	
+	// set the source
+	$scope.audio.src = 'audio/ht-bluesy.mp3';
 
-app.controller('ChildController', function($scope) {
-	$scope.sayHello = function() {
-		$scope.person.greeted = true;
+	// play audio
+	$scope.play = function() {
+		$scope.audio.play();
+
+		if (!$scope.audio.paused) {
+			$scope.playing = true;
+		}
 	}
 
-	$scope.reset = function() {
-		$scope.person.greeted = false;
+	$scope.pause = function() {
+		$scope.audio.pause();
+
+		if ($scope.audio.paused) {
+			$scope.playing = false;
+		}
 	}
-});
+}]);
+
+// keep track of audio element
+// fetch NPR listings
+app.controller('RelatedController', ['$scope', function(){
+	
+}]);
